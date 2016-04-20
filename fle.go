@@ -1,21 +1,24 @@
 package main
 
-import "os"
-import "fmt"
-import "strings"
-import "math/rand"
-import "github.com/fatih/color"
+import (
+	"fmt"
+	"math/rand"
+	"os"
+	"strings"
+
+	"github.com/fatih/color"
+)
 
 func getfles() []func(string) string {
-	return []func(string) string {
-			func(d string) string {return color.New(color.FgYellow).SprintFunc()(d)},
-			func(d string) string {return color.New(color.FgBlue).SprintFunc()(d)},
-			func(d string) string {return color.New(color.FgRed).SprintFunc()(d)},
-			func(d string) string {return color.New(color.FgYellow).SprintFunc()(d)},
-			func(d string) string {return color.New(color.FgMagenta).SprintFunc()(d)},
-			func(d string) string {return color.New(color.FgCyan).SprintFunc()(d)},
-			func(d string) string {return color.New(color.FgWhite).SprintFunc()(d)},
-		}
+	return []func(string) string{
+		func(d string) string { return color.New(color.FgYellow).SprintFunc()(d) },
+		func(d string) string { return color.New(color.FgBlue).SprintFunc()(d) },
+		func(d string) string { return color.New(color.FgRed).SprintFunc()(d) },
+		func(d string) string { return color.New(color.FgYellow).SprintFunc()(d) },
+		func(d string) string { return color.New(color.FgMagenta).SprintFunc()(d) },
+		func(d string) string { return color.New(color.FgCyan).SprintFunc()(d) },
+		func(d string) string { return color.New(color.FgWhite).SprintFunc()(d) },
+	}
 }
 
 func splitargs() string {
