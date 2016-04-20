@@ -8,33 +8,33 @@ import "github.com/fatih/color"
 
 func getfles() []func(string) string {
 	return []func(string) string {
-  		func(d string) string {return color.New(color.FgYellow).SprintFunc()(d)},
-  		func(d string) string {return color.New(color.FgBlue).SprintFunc()(d)},
-  		func(d string) string {return color.New(color.FgRed).SprintFunc()(d)},
-  		func(d string) string {return color.New(color.FgYellow).SprintFunc()(d)},
-  		func(d string) string {return color.New(color.FgMagenta).SprintFunc()(d)},
-  		func(d string) string {return color.New(color.FgCyan).SprintFunc()(d)},
-  		func(d string) string {return color.New(color.FgWhite).SprintFunc()(d)},
-  	}
+			func(d string) string {return color.New(color.FgYellow).SprintFunc()(d)},
+			func(d string) string {return color.New(color.FgBlue).SprintFunc()(d)},
+			func(d string) string {return color.New(color.FgRed).SprintFunc()(d)},
+			func(d string) string {return color.New(color.FgYellow).SprintFunc()(d)},
+			func(d string) string {return color.New(color.FgMagenta).SprintFunc()(d)},
+			func(d string) string {return color.New(color.FgCyan).SprintFunc()(d)},
+			func(d string) string {return color.New(color.FgWhite).SprintFunc()(d)},
+		}
 }
 
 func splitargs() string {
-  args := os.Args[1:]
-  s := ""
+	args := os.Args[1:]
+	s := ""
 
-  for i := 0; i < len(args); i++ {
-    s += args[i] + " "
-  }
+	for i := 0; i < len(args); i++ {
+		s += args[i] + " "
+	}
 
-  return s
+	return s
 }
 
 func stringtoslice(s string) []string {
-  return strings.Split(s, "")
+	return strings.Split(s, "")
 }
 
 func main() {
-  flist := getfles()
+	flist := getfles()
 
 	argstring := splitargs()
 	s := stringtoslice(argstring)
