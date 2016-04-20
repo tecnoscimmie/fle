@@ -7,7 +7,7 @@ import "math/rand"
 import "github.com/fatih/color"
 
 func getfles() []func(string) string {
-	fles := []func(string) string {
+	return []func(string) string {
   		func(d string) string {return color.New(color.FgYellow).SprintFunc()(d)},
   		func(d string) string {return color.New(color.FgBlue).SprintFunc()(d)},
   		func(d string) string {return color.New(color.FgRed).SprintFunc()(d)},
@@ -16,8 +16,6 @@ func getfles() []func(string) string {
   		func(d string) string {return color.New(color.FgCyan).SprintFunc()(d)},
   		func(d string) string {return color.New(color.FgWhite).SprintFunc()(d)},
   	}
-
-  return fles
 }
 
 func splitargs() string {
@@ -25,17 +23,21 @@ func splitargs() string {
   s := ""
 
   for i := 0; i < len(args); i++ {
-    s += args[i]
+    s += args[i] + " "
   }
 
   return s
+}
+
+func stringtoslice(s string) []string {
+  return strings.Split(s, "")
 }
 
 func main() {
   flist := getfles()
 
 	argstring := splitargs()
-	s := strings.Split(argstring, "")
+	s := stringtoslice(argstring)
 	result := ""
 
 	for i := 0; i < len(s); i++ {
