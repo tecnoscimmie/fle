@@ -2,24 +2,10 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"os"
-	"strings"
 
-	"github.com/fatih/color"
+	"github.com/tecnoscimmie/libfle"
 )
-
-func getfles() []func(string) string {
-	return []func(string) string{
-		func(d string) string { return color.New(color.FgYellow).SprintFunc()(d) },
-		func(d string) string { return color.New(color.FgBlue).SprintFunc()(d) },
-		func(d string) string { return color.New(color.FgRed).SprintFunc()(d) },
-		func(d string) string { return color.New(color.FgYellow).SprintFunc()(d) },
-		func(d string) string { return color.New(color.FgMagenta).SprintFunc()(d) },
-		func(d string) string { return color.New(color.FgCyan).SprintFunc()(d) },
-		func(d string) string { return color.New(color.FgWhite).SprintFunc()(d) },
-	}
-}
 
 func splitargs() string {
 	args := os.Args[1:]
@@ -32,20 +18,9 @@ func splitargs() string {
 	return s
 }
 
-func stringtoslice(s string) []string {
-	return strings.Split(s, "")
-}
-
 func main() {
-	flist := getfles()
-
 	argstring := splitargs()
-	s := stringtoslice(argstring)
-	result := ""
-
-	for i := 0; i < len(s); i++ {
-		result += flist[rand.Intn(len(flist))](s[i])
-	}
+	result := libfle.NewFle(argstring)
 
 	fmt.Printf(result + "\n")
 }
